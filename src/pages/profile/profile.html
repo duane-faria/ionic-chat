@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Perfíl</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="navigateToEditProfile()">
+        Editar
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <app-profile-view
+    (existingProfile)="getExistingProfile($event)"
+  ></app-profile-view>
+  <button ion-button (click)="signOut()">
+    Sair
+  </button>
+</ion-content>

@@ -1,0 +1,50 @@
+<form #loginForm="ngForm" novalidate>
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input
+          type="email"
+          [(ngModel)]="account.email"
+          name="email"
+          #email="ngModel"
+          required
+        ></ion-input>
+      </ion-item>
+      <div padding *ngIf="email.invalid && email.dirty">
+        <span class="global__input-error">E-mail inválido!</span>
+      </div>
+      <ion-item>
+        <ion-label floating>Senha</ion-label>
+        <ion-input
+          type="password"
+          [(ngModel)]="account.password"
+          name="password"
+          pattern="[a-zA-Z0-9!@#$%^&*]{6,20}$"
+          #password="ngModel"
+          required
+        ></ion-input>
+      </ion-item>
+      <div padding *ngIf="password.invalid && password.dirty">
+        <span class="global__input-error"
+          >A senha precisa ter 6 caracteres no mínimo.</span
+        >
+      </div>
+    </ion-card-content>
+    <ion-row class="login-form__buttons">
+      <div>
+        <button ion-button color="secondary" (click)="navigateToRegisterPage()">
+          Registrar
+        </button>
+        <button
+          ion-button
+          color="primary"
+          (click)="login()"
+          [disabled]="loginForm.invalid"
+        >
+          Login
+        </button>
+      </div>
+    </ion-row>
+  </ion-card>
+</form>

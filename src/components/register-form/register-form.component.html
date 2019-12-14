@@ -1,0 +1,24 @@
+<ion-card>
+  <ion-card-content>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="email" [(ngModel)]="account.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Senha</ion-label>
+      <ion-input type="password" [(ngModel)]="account.password"></ion-input>
+    </ion-item>
+  </ion-card-content>
+  <ion-row class="register-form__button">
+    <div class="d-flex align-end">
+      <button
+        ion-button
+        color="primary"
+        (click)="register()"
+        style="margin: 0 0 10px 200px;"
+      >
+        Registrar
+      </button>
+    </div>
+  </ion-row>
+</ion-card>
